@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Vijaystore_Customapi>
+			<active>true</active>
+			<codePool>local</codePool>
+			<version>1.0.0</version>
+		</Vijaystore_Customapi>
+	</modules>
+</config>

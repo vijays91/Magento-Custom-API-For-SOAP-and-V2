@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<config>
+    <api>
+        <resources>
+            <customapi translate="title" module="customapi">
+                <model>customapi/customapi_api</model>
+                <title>Customapi API</title>
+                <acl>customapi</acl>
+                <methods>
+                    <list translate="title" module="customapi">
+                        <title>Retrieve Customapi Data</title>
+                        <method>items</method>
+                        <acl>customapi/list</acl>
+                    </list>
+                    <create translate="title" module="customapi">
+                        <title>Create Customapi Data</title>
+                        <acl>customapi/create</acl>
+                    </create>
+                    <info translate="title" module="customapi">
+                        <title>Retrieve Customapi Data</title>
+                        <acl>customapi/info</acl>
+                    </info>
+                    <update translate="title" module="customapi">
+                        <title>Update Customapi Data</title>
+                        <acl>customapi/update</acl>
+                    </update>
+                    <delete translate="title" module="customapi">
+                        <title>Delete Customapi Data</title>
+                        <acl>customapi/delete</acl>
+                    </delete>
+                </methods>
+                <faults module="customapi">
+                    <data_invalid>
+                        <code>100</code>
+                        <message>Invalid customapi data. Details in error message.</message>
+                    </data_invalid>
+                    <filters_invalid>
+                        <code>101</code>
+                        <message>Invalid filters specified. Details in error message.</message>
+                    </filters_invalid>
+                    <not_exists>
+                        <code>102</code>
+                        <message>Customapi not exists.</message>
+                    </not_exists>
+                    <not_deleted>
+                        <code>103</code>
+                        <message>Customapi not deleted. Details in error message.</message>
+                    </not_deleted>
+                </faults>
+            </customapi>
+        </resources>
+        <v2>
+            <resources_function_prefix>
+                <customapi>customapiDemo</customapi>
+            </resources_function_prefix>
+        </v2>
+        <acl>
+            <resources>
+                <customapi translate="title" module="customapi">
+                     <title>Customapi</title>
+                     <sort_order>3</sort_order>
+					<list translate="title" module="customapi">
+						<title>View All Data</title>
+					</list>
+                     <create translate="title" module="customapi">
+                        <title>Create Customapi Data</title>
+                     </create>
+                     <update translate="title" module="customapi">
+                        <title>Update Customapi Data</title>
+                     </update>
+                     <delete translate="title" module="customapi">
+                        <title>Delete Customapi Data</title>
+                     </delete>
+                     <info translate="title" module="customapi">
+                        <title>Retrieve Customapi Data</title>
+                     </info>
+                </customapi>
+            </resources>
+        </acl>
+    </api>
+</config>

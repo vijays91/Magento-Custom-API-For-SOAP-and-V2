@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:typens="urn:{{var wsdl.name}}" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/"
+    name="{{var wsdl.name}}" targetNamespace="urn:{{var wsdl.name}}">
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:Magento">
+            <import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="http://schemas.xmlsoap.org/soap/encoding/" />
+            <complexType name="customapiDemoEntityToCreate">
+                <all>
+                    <element name="id" type="xsd:int" minOccurs="0" />
+                    <element name="pincode" type="xsd:int" minOccurs="0" />
+                    <element name="name" type="xsd:string" minOccurs="0" />
+                    <element name="address" type="xsd:string" minOccurs="0" />
+                </all>
+            </complexType>
+            <complexType name="customapiDemoEntity">
+                <all>
+                    <element name="id" type="xsd:int" minOccurs="0" />
+                    <element name="pincode" type="xsd:int" minOccurs="0" />
+                    <element name="name" type="xsd:string" minOccurs="0" />
+                    <element name="address" type="xsd:string" minOccurs="0" />
+                </all>
+            </complexType>
+            <complexType name="customapiDemoEntityArray">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType" wsdl:arrayType="typens:customapiDemoEntity[]" />
+                    </restriction>
+                </complexContent>
+            </complexType>
+        </schema>
+    </types>
+    <message name="customapiDemoListRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="filters" type="typens:filters" />
+    </message>
+    <message name="customapiDemoListResponse">
+        <part name="storeView" type="typens:customapiDemoEntityArray" />
+    </message>
+    <message name="customapiDemoCreateRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="tutorialData" type="typens:customapiDemoEntityToCreate" />
+    </message>
+    <message name="customapiDemoCreateResponse">
+        <part name="result" type="xsd:int" />
+    </message>
+    <message name="customapiDemoInfoRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="tutorialId" type="xsd:int" />
+        <part name="attributes" type="typens:ArrayOfString" />
+    </message>
+    <message name="customapiDemoInfoResponse">
+        <part name="customerInfo" type="typens:customapiDemoEntity" />
+    </message>
+    <message name="customapiDemoUpdateRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="tutorialId" type="xsd:int" />
+        <part name="tutorialData" type="typens:customapiDemoEntityToCreate" />
+    </message>
+    <message name="customapiDemoUpdateResponse">
+        <part name="result" type="xsd:int" />
+    </message>
+    <message name="customapiDemoDeleteRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="tutorialId" type="xsd:int" />
+    </message>
+    <message name="customapiDemoDeleteResponse">
+        <part name="result" type="xsd:boolean" />
+    </message>
+     <portType name="{{var wsdl.handler}}PortType">
+        <operation name="customapiDemoList">
+            <documentation>Retrieve CustomApi Data</documentation>
+            <input message="typens:customapiDemoListRequest" />
+            <output message="typens:customapiDemoListResponse" />
+        </operation>
+        <operation name="customapiDemoCreate">
+            <documentation>Create CustomApi Data</documentation>
+            <input message="typens:customapiDemoCreateRequest" />
+            <output message="typens:customapiDemoCreateResponse" />
+        </operation>
+        <operation name="customapiDemoInfo">
+            <documentation>Retrieve CustomApi Data</documentation>
+            <input message="typens:customapiDemoInfoRequest" />
+            <output message="typens:customapiDemoInfoResponse" />
+        </operation>
+        <operation name="customapiDemoUpdate">
+            <documentation>Update CustomApi Data</documentation>
+            <input message="typens:customapiDemoUpdateRequest" />
+            <output message="typens:customapiDemoUpdateResponse" />
+        </operation>
+        <operation name="customapiDemoDelete">
+            <documentation>Delete CustomApi Data</documentation>
+            <input message="typens:customapiDemoDeleteRequest" />
+            <output message="typens:customapiDemoDeleteResponse" />
+        </operation>
+    </portType>
+	
+    <binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="customapiDemoList">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="customapiDemoCreate">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="customapiDemoInfo">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="customapiDemoUpdate">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="customapiDemoDelete">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+    </binding>
+</definitions>
