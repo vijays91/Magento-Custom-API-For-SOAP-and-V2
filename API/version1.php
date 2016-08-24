@@ -1,4 +1,8 @@
 <?php
+
+ini_set("soap.wsdl_cache_enabled", "0"); /* Disable WSDL cache ( file in : tmp/ wsdl-***)*/
+
+
 $api_url_v1 = "http://www.yousite.com/index.php/api/soap/?wsdl=1";
 $username = '*****';
 $password = '*****';
@@ -6,6 +10,10 @@ $password = '*****';
 
 $cli = new SoapClient($api_url_v1);
 $session_id = $cli->login($username, $password);
+
+// $functions = $client->__getFunctions (); /* Used for checking function(new api function) exist or not */
+// print_r($functions);
+
 
 // ** Get Particular record Data
 // $Info = $cli->call($session_id, 'customapi.info', 1);
