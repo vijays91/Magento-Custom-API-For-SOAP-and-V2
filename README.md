@@ -1,2 +1,2 @@
 # Magento Custom SOAP API
-Sample Magento, custom api for SOAP and V2 creation.
+Sample Magento, Custom api for SOAP and V2 creation.
